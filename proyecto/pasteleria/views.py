@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Torta, Cliente
 
+def index(request):
+    return render(request, 'pasteleria/index.html')
 
 def torta_list(request):
     tortas= Torta.objects.all()

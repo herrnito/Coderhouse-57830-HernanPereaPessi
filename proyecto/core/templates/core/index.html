@@ -6,10 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    {% for torta in tortas %}
-    <p> {{ torta }}</p>
-    {% endfor %}
-    <button><a href="{% url 'pasteleria:index' %}"> Volver </a></button>
-       
+    <h1> Home </h1>
+    <a href="{% url 'pasteleria:index' %}"> Pasteleria</a>
+
 </body>
 </html>
