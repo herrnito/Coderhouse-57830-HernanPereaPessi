@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for pedido in pedidos %}
+    <p> {{ pedido.nombre }} {{ pedido.torta }} {{ pedido.cantidad }} {{ pedido.fecha_pedido }} {{ pedido.estado }}</p>
+    {% endfor %}
+    <button><a href="{% url 'pasteleria:index' %}"> Volver </a></button>
+       
+</body>
+</html>

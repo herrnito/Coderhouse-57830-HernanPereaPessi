@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Torta, Cliente
+from .models import Torta, Cliente, Pedido
 
 def index(request):
     return render(request, 'pasteleria/index.html')
@@ -13,6 +13,11 @@ def cliente_list(request):
     clientes = Cliente.objects.all()
     contexto = {'clientes' : clientes}
     return render(request, 'pasteleria/cliente_list.html', contexto)
+
+def pedido_list(request):
+    pedidos = Pedido.objects.all()
+    contexto = {'pedidos' : pedidos}
+    return render(request, 'pasteleria/pedido_list.html', contexto)
 
 
 
