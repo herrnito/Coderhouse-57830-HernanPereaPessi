@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1> Home </h1>
-    <a href="{% url 'pasteleria:index' %}"> Pasteleria</a>
+{% extends 'core/base.html' %}
 
-</body>
-</html>
+{% block header %}
+Bienvenido a Pasteleria MG
+{% endblock header %}
+
+{% block main %}
+    <div>
+        <img style="width: 80%; height: 70vh; margin-top: 10vh;" src="https://www.lazayafruits.com/es/wp-content/uploads/sites/2/2020/12/pasteleria-lider-en-ventas-1.png" alt="">
+    </div>
+{% endblock main %}
