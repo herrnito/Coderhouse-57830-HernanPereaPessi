@@ -5,13 +5,20 @@
 {% endblock header %}
 
 {% block main %}
+    <form action="{% url 'pasteleria:torta_list' %}" method="get">
+        <input type="text" name="q" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
+
 <button>
     <a href="{% url 'pasteleria:torta_create' %}">Crear Torta</a>
 </button>
     <div>
         {% for torta in tortas %}
-            <p> {{ torta.nombre }} {{ torta.descripcion }} $ {{ torta.precio }}</p>
-        {% endfor %}
+            <p> 🎂 {{ torta.nombre }} | ◽Descripcion: {{ torta.descripcion }} | 💲 {{ torta.precio }}</p>
+        {% empty %}
+        <p>No hay registros.</p>
+            {% endfor %}
     </div>
     <button><a href="{% url 'pasteleria:index' %}"> Volver </a></button>
 

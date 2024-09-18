@@ -5,12 +5,20 @@
 {% endblock header %}
 
 {% block main %}
-<button></button>
+<form action="{% url 'pasteleria:pedido_list' %}" method="get">
+    <input type="text" name="q" placeholder="Buscar...">
+    <button type="submit">Buscar</button>
+</form>
+<button>
     <a href="{% url 'pasteleria:pedido_create' %}">Crear pedido.</a>
 </button>
     <div>
         {% for pedido in pedidos %}
-            <p> {{ pedido.nombre }} {{ pedido.torta }} {{ pedido.cantidad }} {{ pedido.fecha_pedido }} {{ pedido.estado }}</p>
+            <p> {{ pedido.nombre }} {{ pedido.torta }} | 📋Cantidad: {{ pedido.cantidad }} | 📅Fecha: {{ pedido.fecha_pedido }} | ⌛Estado de pedido: {{ pedido.estado }}</p>
+
+            {% empty %}
+            <p>No hay registros.</p>
+
         {% endfor %}
     </div>
     <button><a href="{% url 'pasteleria:index' %}"> Volver </a></button>

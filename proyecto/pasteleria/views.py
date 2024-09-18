@@ -6,17 +6,29 @@ def index(request):
     return render(request, 'pasteleria/index.html')
 
 def torta_list(request):
-    tortas= Torta.objects.all()
+    query = request.GET.get("q")
+    if query:
+        tortas = Torta.objects.filter(nombre__icontains=query)
+    else:
+        tortas= Torta.objects.all()
     contexto = {'tortas' : tortas}
     return render(request, 'pasteleria/torta_list.html', contexto)
 
 def cliente_list(request):
-    clientes = Cliente.objects.all()
+    query = request.GET.get("q")
+    if query:
+        clientes = Cliente.objects.filter(nombre__icontains=query)
+    else:
+        clientes = Cliente.objects.all()
     contexto = {'clientes' : clientes}
     return render(request, 'pasteleria/cliente_list.html', contexto)
 
 def pedido_list(request):
-    pedidos = Pedido.objects.all()
+    query = request.GET.get("q")
+    if query:
+        pedido = Pedido.objects.filter(nombre__icontains=query)
+    else:
+        pedidos = Pedido.objects.all()
     contexto = {'pedidos' : pedidos}
     return render(request, 'pasteleria/pedido_list.html', contexto)
 

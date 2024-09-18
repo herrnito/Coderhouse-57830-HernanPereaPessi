@@ -5,12 +5,22 @@
 {% endblock header %}
 
 {% block main %}
+
+<form action="{% url 'pasteleria:cliente_list' %}" method="get">
+    <input type="text" name="q" placeholder="Buscar...">
+    <button type="submit">Buscar</button>
+</form>
+
 <button>
     <a href="{% url 'pasteleria:cliente_create' %}">Crear cliente</a>
 </button>
     <div>
         {% for cliente in clientes %}
-            <p> {{ cliente.nombre }} {{ cliente.direccion }} {{ cliente.telefono }} {{ cliente.email }}</p>
+            <p> Nombre: {{cliente.nombre}} | 📍Direccion: {{ cliente.direccion }} | 📱Telefono:  {{ cliente.telefono }} | 📨Email: {{ cliente.email }}</p>
+
+            {% empty %}
+            <p>No hay registros.</p>
+
         {% endfor %}
     </div>   
     <button><a href="{% url 'pasteleria:index' %}"> Volver </a></button>

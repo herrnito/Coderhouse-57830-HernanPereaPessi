@@ -5,10 +5,52 @@
 {% endblock header %}
 
 {% block main %}
-<button><a href="{% url 'pasteleria:torta_list' %}"> 🎂Tortas</a></button>
-<button><a href="{% url 'pasteleria:cliente_list' %}"> 👥Clientes</a></button>
-<button><a href="{% url 'pasteleria:pedido_list' %}">📋Pedidos</a></button>
-<button><a href="{% url 'pasteleria:torta_create' %}">Crear Torta</a></button>
-<button><a href="{% url 'pasteleria:pedido_create' %}">Crear pedido</a></button>
-<button><a href="{% url 'pasteleria:cliente_create' %}">Crear cliente</a></button>
+    <style>
+        button {
+            background-color: #4a4a4a;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button a {
+            text-decoration: none;
+            color: #f8c8dc;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #5a5a5a;
+        }
+
+        .crear {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .acciones {
+            margin-top: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+
+    <div class="acciones">
+        <button><a href="{% url 'pasteleria:torta_list' %}">🎂 Tortas</a></button>
+        <button><a href="{% url 'pasteleria:cliente_list' %}">👥 Clientes</a></button>
+        <button><a href="{% url 'pasteleria:pedido_list' %}">📋 Pedidos</a></button>
+    </div>
+
+    <div class="crear">
+        <button><a href="{% url 'pasteleria:torta_create' %}"> 🟣 Crear Torta</a></button>
+        <button><a href="{% url 'pasteleria:pedido_create' %}"> 🟣 Crear Pedido</a></button>
+        <button><a href="{% url 'pasteleria:cliente_create' %}"> 🟣 Crear Cliente</a></button>
+    </div>
 {% endblock main %}
