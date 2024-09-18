@@ -5,6 +5,9 @@
 {% endblock header %}
 
 {% block main %}
+<button></button>
+    <a href="{% url 'pasteleria:pedido_create' %}">Crear pedido.</a>
+</button>
     <div>
         {% for pedido in pedidos %}
             <p> {{ pedido.nombre }} {{ pedido.torta }} {{ pedido.cantidad }} {{ pedido.fecha_pedido }} {{ pedido.estado }}</p>

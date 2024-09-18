@@ -5,6 +5,9 @@
 {% endblock header %}
 
 {% block main %}
+<button>
+    <a href="{% url 'pasteleria:cliente_create' %}">Crear cliente</a>
+</button>
     <div>
         {% for cliente in clientes %}
             <p> {{ cliente.nombre }} {{ cliente.direccion }} {{ cliente.telefono }} {{ cliente.email }}</p>
