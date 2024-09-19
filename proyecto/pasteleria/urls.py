@@ -15,6 +15,8 @@ urlpatterns = [
     path("cliente/create", views.cliente_create, name="cliente_create"),
     path("torta_list/detail<int:pk>", views.torta_list_detail, name='torta_list_detail'),
     path("cliente_list/detail<int:pk>", views.cliente_list_detail, name='cliente_list_detail'),
-    # path("torta/update<int:pk>", views.torta_update, name="torta_update"),
+    path("torta/update<int:pk>", views.torta_update, name="torta_update"),
+    path("cliente/update<int:pk>", views.cliente_update, name="cliente_update"),
+    path("pedido/update<int:pk>", views.pedido_update, name="pedido_update"),
 
 ]

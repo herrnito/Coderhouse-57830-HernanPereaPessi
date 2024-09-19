@@ -40,7 +40,7 @@ def torta_create(request):
         if form.is_valid():
             form.save() 
             return redirect('pasteleria:torta_list')   
-    return render(request, 'pasteleria/torta_create.html', {"form" : form})
+    return render(request, 'pasteleria/torta_form.html', {"form" : form})
 
 def pedido_create(request):
     if request.method == 'GET':
@@ -50,7 +50,7 @@ def pedido_create(request):
         if form.is_valid():
             form.save() 
             return redirect('pasteleria:pedido_list')   
-    return render(request, 'pasteleria/pedido_create.html', {"form" : form})
+    return render(request, 'pasteleria/pedido_form.html', {"form" : form})
 
 
 def cliente_create(request):
@@ -61,7 +61,7 @@ def cliente_create(request):
         if form.is_valid():
             form.save() 
             return redirect('pasteleria:cliente_list')   
-    return render(request, 'pasteleria/cliente_create.html', {"form" : form})
+    return render(request, 'pasteleria/cliente_form.html', {"form" : form})
 
 def torta_list_detail(request, pk: int):
     query = Torta.objects.get(id=pk)
@@ -73,14 +73,36 @@ def cliente_list_detail(request, pk: int):
     contexto = {'cliente' : query}
     return render(request, 'pasteleria/cliente_list_detail.html', contexto)
 
-# def torta_update(request, pk: int):
-#     query = Torta.objects.get(id=pk)
-#     if request.method == 'GET':
-#         form = TortaForm(instance=query)
-#     if request.method == 'POST':
-#         form = TortaForm(request.POST, instance=query)
-#         if form.is_valid():
-#             form.save() 
-#             return redirect('pasteleria:torta_list')   
-#     return render(request, 'pasteleria/torta_create.html', {"form" : form})
+def torta_update(request, pk: int):
+    query = Torta.objects.get(id=pk)
+    if request.method == 'GET':
+        form = TortaForm(instance=query)
+    if request.method == 'POST':
+        form = TortaForm(request.POST, instance=query)
+        if form.is_valid():
+            form.save() 
+            return redirect('pasteleria:torta_list')   
+    return render(request, 'pasteleria/torta_form.html', {"form" : form})
+
+def cliente_update(request, pk: int):
+    query = Cliente.objects.get(id=pk)
+    if request.method == 'GET':
+        form = ClienteForm(instance=query)
+    if request.method == 'POST':
+        form = ClienteForm(request.POST, instance=query)
+        if form.is_valid():
+            form.save() 
+            return redirect('pasteleria:cliente_list')   
+    return render(request, 'pasteleria/cliente_form.html', {"form" : form})
+
+def pedido_update(request, pk: int):
+    query = Pedido.objects.get(id=pk)
+    if request.method == 'GET':
+        form = PedidoForm(instance=query)
+    if request.method == 'POST':
+        form = PedidoForm(request.POST, instance=query)
+        if form.is_valid():
+            form.save() 
+            return redirect('pasteleria:pedido_list')   
+    return render(request, 'pasteleria/pedido_form.html', {"form" : form})
 
