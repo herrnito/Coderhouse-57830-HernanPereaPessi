@@ -5,21 +5,24 @@
 {% endblock header %}
 
 {% block main %}
-    <form action="{% url 'pasteleria:torta_list' %}" method="get">
+<form action="{% url 'pasteleria:torta_list' %}" method="get">
         <input type="text" name="q" placeholder="Buscar...">
         <button type="submit">Buscar</button>
-    </form>
-
-<button>
-    <a href="{% url 'pasteleria:torta_create' %}">Crear Torta</a>
-</button>
-    <div>
+    
+    <button>
+       <a href="{% url 'pasteleria:torta_create' %}">Crear Torta</a>
+    </button>
+</form>
+    <ul>
         {% for torta in tortas %}
-            <p> 🎂 {{ torta.nombre }} | ◽Descripcion: {{ torta.descripcion }} | 💲 {{ torta.precio }}</p>
+            <li> 🎂 {{ torta.nombre }}
+            <a href="{% url 'pasteleria:torta_list_detail' torta.id %}">Detalle</a>
+                <a href="{% url 'pasteleria:torta_create' object.id%}"> Cambiar </a>
+            </li>
         {% empty %}
         <p>No hay registros.</p>
             {% endfor %}
-    </div>
+    </ul>
     <button><a href="{% url 'pasteleria:index' %}"> Volver </a></button>
 
 {% endblock main %}

@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Tortas: Detalle de la torta.
+{% endblock header %}
+
+{% block main %}
+    <ul>
+        <li>📋Nombre: {{ torta.nombre }} </li>
+        <li>◽Descripcion: {{torta.descripcion}} 💲 {{ torta.precio }} </li>
+    </ul>
+    <button><a href="{% url 'pasteleria:torta_list' %}"> Volver </a></button>
+
+{% endblock main %}

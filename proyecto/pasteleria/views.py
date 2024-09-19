@@ -63,6 +63,24 @@ def cliente_create(request):
             return redirect('pasteleria:cliente_list')   
     return render(request, 'pasteleria/cliente_create.html', {"form" : form})
 
+def torta_list_detail(request, pk: int):
+    query = Torta.objects.get(id=pk)
+    contexto = {'torta' : query}
+    return render(request, 'pasteleria/torta_list_detail.html', contexto)
 
+def cliente_list_detail(request, pk: int):
+    query = Cliente.objects.get(id=pk)
+    contexto = {'cliente' : query}
+    return render(request, 'pasteleria/cliente_list_detail.html', contexto)
 
+# def torta_update(request, pk: int):
+#     query = Torta.objects.get(id=pk)
+#     if request.method == 'GET':
+#         form = TortaForm(instance=query)
+#     if request.method == 'POST':
+#         form = TortaForm(request.POST, instance=query)
+#         if form.is_valid():
+#             form.save() 
+#             return redirect('pasteleria:torta_list')   
+#     return render(request, 'pasteleria/torta_create.html', {"form" : form})
 

@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Clientes : Detalles
+{% endblock header %}
+
+{% block main %}
+    <ul>
+        <li>📋Nombre: {{ cliente.nombre }} </li>
+        <li>📍Direccion: {{ cliente.direccion }} | 📱Telefono:  {{ cliente.telefono }} | 📨Email: {{ cliente.email }} </li>
+    </ul>
+    <button><a href="{% url 'pasteleria:torta_list' %}"> Volver </a></button>
+
+{% endblock main %}

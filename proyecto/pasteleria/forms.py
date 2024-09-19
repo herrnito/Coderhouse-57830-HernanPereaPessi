@@ -32,4 +32,5 @@ class PedidoForm(forms.ModelForm):
     class Meta:
         model = Pedido
         fields = "__all__"
+        widgets = {'fecha_pedido' : forms.DateInput(attrs={'type' : 'date'})}
         
