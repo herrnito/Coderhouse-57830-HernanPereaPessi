@@ -26,5 +26,17 @@
     </style>
     
     <button><a href="{% url 'core:index' %}">🏠Home</a></button>
+    {% if user.is_authenticated %}
+        
     <button><a href="{% url 'pasteleria:index' %}">📜Pasteleria</a></button>
+    <button><a href="#">{{ user.username }}</a></button>
+
+    <form action="{% url 'core:logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    
+    {% else %}
+    <button><a href="{% url 'core:login' %}"> Login </a></button>
+    {% endif %}
 </navbar>
