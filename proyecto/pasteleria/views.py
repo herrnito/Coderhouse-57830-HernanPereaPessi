@@ -1,9 +1,14 @@
 from django.shortcuts import render, redirect
 from .models import Torta, Cliente, Pedido
 from .forms import ClienteForm, TortaForm, PedidoForm
+# from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 
 def index(request):
     return render(request, 'pasteleria/index.html')
+
+
+#****************** LIST
+
 
 def torta_list(request):
     query = request.GET.get("q")
@@ -13,6 +18,20 @@ def torta_list(request):
         tortas= Torta.objects.all()
     contexto = {'tortas' : tortas}
     return render(request, 'pasteleria/torta_list.html', contexto)
+
+
+# class TortaList(ListView):
+#     model = Torta
+#     queryset = Torta.objects.all()
+#     def get_queryset(self):
+#             queryset = super().get_queryset()
+#             q = self.request.GET.get('q')
+#             if q:
+#                 queryset = Torta.objects.filter(nombre__icontains=q)
+#             return queryset
+       
+           
+ 
 
 def cliente_list(request):
     query = request.GET.get("q")
@@ -31,6 +50,14 @@ def pedido_list(request):
         pedidos = Pedido.objects.all()
     contexto = {'pedidos' : pedidos}
     return render(request, 'pasteleria/pedido_list.html', contexto)
+
+
+
+
+
+
+#******************* CREATE
+
 
 def torta_create(request):
     if request.method == 'GET':
@@ -63,6 +90,12 @@ def cliente_create(request):
             return redirect('pasteleria:cliente_list')   
     return render(request, 'pasteleria/cliente_form.html', {"form" : form})
 
+
+
+
+
+#****************** DETAIL
+
 def torta_list_detail(request, pk: int):
     query = Torta.objects.get(id=pk)
     contexto = {'torta' : query}
@@ -83,6 +116,13 @@ def torta_update(request, pk: int):
             form.save() 
             return redirect('pasteleria:torta_list')   
     return render(request, 'pasteleria/torta_form.html', {"form" : form})
+
+
+
+
+
+
+#****************** UPDATE
 
 def cliente_update(request, pk: int):
     query = Cliente.objects.get(id=pk)
@@ -106,3 +146,29 @@ def pedido_update(request, pk: int):
             return redirect('pasteleria:pedido_list')   
     return render(request, 'pasteleria/pedido_form.html', {"form" : form})
 
+
+
+
+
+#****************** DELETE
+
+def torta_delete(request, pk:int):
+     query = Torta.objects.get(id=pk)
+     if request.method == 'POST':
+         query.delete()
+         return redirect('pasteleria:torta_list')
+     return render(request, 'pasteleria/torta_confirm_delete.html', {'torta' : query})
+
+def cliente_delete(request, pk:int):
+     query = Cliente.objects.get(id=pk)
+     if request.method == 'POST':
+         query.delete()
+         return redirect('pasteleria:cliente_list')
+     return render(request, 'pasteleria/cliente_confirm_delete.html', {'cliente' : query})
+
+def pedido_delete(request, pk:int):
+     query = Pedido.objects.get(id=pk)
+     if request.method == 'POST':
+         query.delete()
+         return redirect('pasteleria:pedido_list')
+     return render(request, 'pasteleria/pedido_confirm_delete.html', {'pedido' : query})

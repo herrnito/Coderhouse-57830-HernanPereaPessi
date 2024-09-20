@@ -18,6 +18,7 @@
             <li> 🎂 {{ torta.nombre }}
             <a href="{% url 'pasteleria:torta_list_detail' torta.id %}">Detalle</a>
             <a href="{% url 'pasteleria:torta_update'  torta.id %}"> Cambiar </a>
+            <a href="{% url 'pasteleria:torta_delete' torta.id %}"> Eliminar</a>
             </li>
         {% empty %}
         <p>No hay registros.</p>

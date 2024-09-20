@@ -19,6 +19,7 @@
             <li> Nombre: {{cliente.nombre}} 
                 <a href="{% url 'pasteleria:cliente_list_detail' cliente.id %}">Detalle</a>   
                 <a href="{% url 'pasteleria:cliente_update'  cliente.id %}"> Cambiar </a> 
+                <a href="{% url 'pasteleria:cliente_delete' cliente.id %}"> Eliminar</a>
             </li>
 
             {% empty %}

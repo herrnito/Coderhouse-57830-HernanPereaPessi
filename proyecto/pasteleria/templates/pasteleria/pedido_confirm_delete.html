@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Pedidos: Eliminar.
+{% endblock header %}
+
+{% block main %}
+  <p>¿Esta seguro que desea borrar el elemento "{{ pedido.nombre }}"?</p>
+  <form method="post">
+     {% csrf_token %}
+     <button>Confirmar</button>
+  </form>
+    <button><a href="{% url 'pasteleria:pedido_list' %}"> Volver </a></button>
+
+{% endblock main %}

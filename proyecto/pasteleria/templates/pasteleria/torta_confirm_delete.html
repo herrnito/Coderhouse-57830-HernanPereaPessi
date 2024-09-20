@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Tortas: Eliminar.
+{% endblock header %}
+
+{% block main %}
+  <p>¿Esta seguro que desea borrar el elemento "{{ torta.nombre }}"?</p>
+  <form method="post">
+     {% csrf_token %}
+     <button>Confirmar</button>
+  </form>
+    <button><a href="{% url 'pasteleria:torta_list' %}"> Volver </a></button>
+
+{% endblock main %}

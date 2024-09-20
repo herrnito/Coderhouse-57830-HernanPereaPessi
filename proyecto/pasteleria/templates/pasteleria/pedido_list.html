@@ -16,6 +16,7 @@
         {% for pedido in pedidos %}
             <p> {{ pedido.nombre }} {{ pedido.torta }} | 📋Cantidad: {{ pedido.cantidad }} | 📅Fecha: {{ pedido.fecha_pedido }} | ⌛Estado de pedido: {{ pedido.estado }}</p>
             <a href="{% url 'pasteleria:pedido_update'  pedido.id %}"> Cambiar </a>
+            <a href="{% url 'pasteleria:pedido_delete' pedido.id %}"> Eliminar</a>
 
             {% empty %}
             <p>No hay registros.</p>
