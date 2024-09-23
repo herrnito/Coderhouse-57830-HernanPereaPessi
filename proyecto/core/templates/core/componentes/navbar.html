@@ -1,35 +1,17 @@
-<navbar style="display: flex; justify-content: center;"></navbar>
-    <style>
-       
-        button {
-            background-color: #4a4a4a; 
-            border: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
-
-
-            cursor: pointer;
-        }
-
-       
-        button a {
-            text-decoration: none;
-            color: #f8c8dc;
-            font-weight: bold;
-        }
-
-        
-        button:hover {
-            background-color: #5a5a5a; 
-        }
-    </style>
+<navbar></navbar>
+   
     
     <button><a href="{% url 'core:index' %}">🏠Home</a></button>
     {% if user.is_authenticated %}
         
     <button><a href="{% url 'pasteleria:index' %}">📜Pasteleria</a></button>
     <button><a href="#">{{ user.username }}</a></button>
+
+
+    <a href="{% url 'core:profile' %}">
+    <button>{{ user.username }}</button></a>
+
+
 
     <form action="{% url 'core:logout' %}" method="post">
         {% csrf_token %}
