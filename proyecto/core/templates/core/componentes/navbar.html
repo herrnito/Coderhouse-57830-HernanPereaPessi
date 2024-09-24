@@ -1,5 +1,8 @@
-<navbar></navbar>
+{% load static %}
    
+<div style="margin-bottom: 2%; display: flex; justify-content: center; gap: 1%; background-color: rgb(177, 130, 196);">
+
+
     
     <button><a href="{% url 'core:index' %}">🏠Home</a></button>
     {% if user.is_authenticated %}
@@ -13,6 +16,8 @@
 
     {% if user.vendedor.avatar %}
         <img src="{{ user.vendedor.avatar.url }}" alt="avatar" style="height: 20px;">
+        {% else %}
+        <img src="{% static 'core/img/avatarrr.jpg' %}" alt="avatar" style="height: 20px;">
         
     {% endif %}
 
@@ -26,4 +31,5 @@
     {% else %}
     <button><a href="{% url 'core:login' %}"> ☑️Login </a></button>
     {% endif %}
+</div>
 </navbar>
