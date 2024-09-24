@@ -5,20 +5,25 @@
     {% if user.is_authenticated %}
         
     <button><a href="{% url 'pasteleria:index' %}">📜Pasteleria</a></button>
-    <button><a href="#">{{ user.username }}</a></button>
+    <button><a href="#">🟢{{ user.username }}</a></button>
 
 
     <a href="{% url 'core:profile' %}">
-    <button>{{ user.username }}</button></a>
+    <button> 👤{{ user.username }}</button></a>
+
+    {% if user.vendedor.avatar %}
+        <img src="{{ user.vendedor.avatar.url }}" alt="avatar" style="height: 20px;">
+        
+    {% endif %}
 
 
 
     <form action="{% url 'core:logout' %}" method="post">
         {% csrf_token %}
-        <button type="submit">Logout</button>
+        <button type="submit">🔻Logout</button>
     </form>
     
     {% else %}
-    <button><a href="{% url 'core:login' %}"> Login </a></button>
+    <button><a href="{% url 'core:login' %}"> ☑️Login </a></button>
     {% endif %}
 </navbar>

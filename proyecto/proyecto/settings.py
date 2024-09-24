@@ -128,3 +128,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #Configuracion de autenticacion
 LOGIN_URL = reverse_lazy('core.login')
 LOGIN_REDIRECT_URL = reverse_lazy('core:index')
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
