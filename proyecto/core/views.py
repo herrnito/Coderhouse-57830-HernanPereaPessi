@@ -11,6 +11,9 @@ from .forms import CustomUserCreateForm, UserProfileForm
 def index(request):
     return render(request, 'core/index.html')
 
+def about(request):
+    return render (request, 'core/about.html')
+
 class Register(CreateView):
     form_class = CustomUserCreateForm
     template_name = "core/register.html"

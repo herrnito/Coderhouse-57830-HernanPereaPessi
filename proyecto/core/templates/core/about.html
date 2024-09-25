@@ -1,11 +1,30 @@
 {% extends 'core/base.html' %}
 {% load static %}
 
-
-{% block header %}
-AAAAAAAAAAAAAAAAAAAAAAAAAAA
-{% endblock header %}
-
 {% block main %}
-ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+<section class="section">
+    <div class="container">
+        <div class="about-container" style="display: flex; align-items: center; justify-content: space-between;">
+            <h1 class="title" style="margin-right: 20px;">
+                Sobre mí
+            </h1>
+            <img src="{% static 'core/img/perfil.jpg' %}"
+                 alt="imagen"
+                 width="150px"
+                 height="auto"
+                 style="border-radius: 50%;" />
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h1 class="subtitle">
+            Hola, mi nombre es Hernán Perea Pessi y estoy iniciando en el área de IT.
+            Actualmente estoy aprendiendo el lenguaje de programación Python y el framework Django.
+            Gracias por visitar mi página.
+        </h1>
+    </div>
+</section>
 {% endblock main %}
+

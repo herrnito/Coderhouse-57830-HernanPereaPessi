@@ -1,13 +1,14 @@
 {% load static %}
 
-<div style="margin-bottom: 2%; display: flex; justify-content: center; gap: 2%; background-color: rgb(176, 248, 93); padding: 20px;">
-
+<div style="margin-bottom: 2%; display: flex; justify-content: center; gap: 2%; background-color: rgb(176, 248, 93); padding: 20px; align-items: center;">
+    
+    <!-- Otros botones centrados -->
     <button style="background-color: #2a2a2a; color: #e9b0cd; font-size: 18px; padding: 10px 20px; border: none; border-radius: 5px;">
         <a href="{% url 'core:index' %}" style="color: #fafafa; text-decoration: none;">🏠Home</a>
     </button>
 
     {% if user.is_authenticated %}
-        
+    
     <button style="background-color: #2a2a2a; color: #fcb4d8; font-size: 18px; padding: 10px 20px; border: none; border-radius: 5px;">
         <a href="{% url 'pasteleria:index' %}" style="color: #ffffff; text-decoration: none;">📜Pastelería</a>
     </button>
@@ -38,4 +39,10 @@
     </button>
 
     {% endif %}
+
+    <!-- Botón "Sobre mí" apartado a la derecha -->
+    <button style="background-color: #2a2a2a; color: #e9b0cd; font-size: 16px; padding: 8px 16px; border: none; border-radius: 5px; margin-left: auto;">
+        <a href="{% url 'core:about' %}" style="color: #fafafa; text-decoration: none;">🔖Sobre mí</a>
+    </button>
+
 </div>
