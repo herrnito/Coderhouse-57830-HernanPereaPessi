@@ -16,6 +16,7 @@ urlpatterns = [
     path("cliente/create", login_required(views.cliente_create), name="cliente_create"),
     path("torta_list/detail/<int:pk>", login_required(views.torta_list_detail), name='torta_list_detail'),
     path("cliente_list/detail/<int:pk>", login_required(views.cliente_list_detail), name='cliente_list_detail'),
+    path("pedido_list/detail/<int:pk>", login_required(views.pedido_list_detail), name='pedido_list_detail'),
     path("torta/update/<int:pk>", login_required(views.torta_update), name="torta_update"),
     path("cliente/update/<int:pk>", login_required(views.cliente_update), name="cliente_update"),
     path("pedido/update/<int:pk>", login_required(views.pedido_update), name="pedido_update"),

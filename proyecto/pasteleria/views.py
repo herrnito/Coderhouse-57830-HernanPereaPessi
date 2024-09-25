@@ -34,7 +34,8 @@ def cliente_list(request):
 def pedido_list(request):
     query = request.GET.get("q")
     if query:
-        pedido = Pedido.objects.filter(nombre__icontains=query)
+        pedidos = Pedido.objects.filter(cliente__nombre__icontains=query)
+        pedidos = Pedido.objects.filter(torta__nombre__icontains=query)
     else:
         pedidos = Pedido.objects.all()
     contexto = {'pedidos' : pedidos}
@@ -91,6 +92,15 @@ def cliente_list_detail(request, pk: int):
     contexto = {'cliente' : query}
     return render(request, 'pasteleria/cliente_list_detail.html', contexto)
 
+def pedido_list_detail(request, pk: int):
+    query = Pedido.objects.get(id=pk)
+    contexto = {'pedido' : query}
+    return render(request, 'pasteleria/pedido_list_detail.html', contexto)
+
+
+
+#****************** UPDATE
+
 def torta_update(request, pk: int):
     query = Torta.objects.get(id=pk)
     if request.method == 'GET':
@@ -103,9 +113,6 @@ def torta_update(request, pk: int):
     return render(request, 'pasteleria/torta_form.html', {"form" : form})
 
 
-
-
-#****************** UPDATE
 
 def cliente_update(request, pk: int):
     query = Cliente.objects.get(id=pk)

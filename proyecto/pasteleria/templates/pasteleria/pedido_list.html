@@ -1,7 +1,14 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    Pedidos: Lista de pedidos
+<section class="section">
+    <div class="container">
+      
+      <h1 class="title">
+        Pedidos: Lista de pedidos
+      </h1>
+    </div>
+  </section>
 {% endblock header %}
 
 {% block main %}
@@ -18,7 +25,10 @@
 
 <div>
     {% for pedido in pedidos %}
-        <p> {{ pedido.nombre }} {{ pedido.torta }} | 📋Cantidad: {{ pedido.cantidad }} | 📅Fecha: {{ pedido.fecha_pedido }} | ⌛Estado de pedido: {{ pedido.estado }}</p>
+        <p> 👤 {{ pedido.cliente }} </p>
+        <button style="margin: 5px; padding: 5px 10px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+            <a href="{% url 'pasteleria:pedido_list_detail' pedido.id %}" style="text-decoration: none; color: #ffb3d1;"> Detalles </a>
+        </button>
         <button style="margin: 5px; padding: 5px 10px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
             <a href="{% url 'pasteleria:pedido_update'  pedido.id %}" style="text-decoration: none; color: #ffb3d1;"> Cambiar </a>
         </button>
