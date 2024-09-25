@@ -5,32 +5,36 @@
 {% endblock header %}
 
 {% block main %}
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 20px; background-color: #1a1a1a;">
+    <div style="display: flex; justify-content: center; padding: 20px; background-color: #1a1a1a;">
+        
+        <!-- Contenedor para las dos columnas de botones -->
+        <div style="display: flex; flex-direction: row; gap: 20px;">
+            
+            <!-- Botones de "acciones" alineados en columna -->
+            <div class="acciones" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+                    <a href="{% url 'pasteleria:torta_list' %}" style="text-decoration: none; color: #ffb3d1;">🎂 Tortas</a>
+                </button>
+                <button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+                    <a href="{% url 'pasteleria:cliente_list' %}" style="text-decoration: none; color: #ffb3d1;">👥 Clientes</a>
+                </button>
+                <button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+                    <a href="{% url 'pasteleria:pedido_list' %}" style="text-decoration: none; color: #ffb3d1;">📋 Pedidos</a>
+                </button>
+            </div>
 
-        <!-- Botones de "acciones" alineados en el centro -->
-        <div class="acciones" style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex-grow: 1;">
-            <button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
-                <a href="{% url 'pasteleria:torta_list' %}" style="text-decoration: none; color: #ffb3d1;">🎂 Tortas</a>
-            </button>
-            <button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
-                <a href="{% url 'pasteleria:cliente_list' %}" style="text-decoration: none; color: #ffb3d1;">👥 Clientes</a>
-            </button>
-            <button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
-                <a href="{% url 'pasteleria:pedido_list' %}" style="text-decoration: none; color: #ffb3d1;">📋 Pedidos</a>
-            </button>
-        </div>
-
-        <!-- Botones de "crear" alineados a la derecha -->
-        <div class="crear" style="display: flex; flex-direction: column; align-items: flex-end;">
-            <button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
-                <a href="{% url 'pasteleria:torta_create' %}" style="text-decoration: none; color: #ffb3d1;">🟠 Crear Torta</a>
-            </button>
-            <button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
-                <a href="{% url 'pasteleria:pedido_create' %}" style="text-decoration: none; color: #ffb3d1;">🟠 Crear Pedido</a>
-            </button>
-            <button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
-                <a href="{% url 'pasteleria:cliente_create' %}" style="text-decoration: none; color: #ffb3d1;">🟠 Crear Cliente</a>
-            </button>
+            <!-- Botones de "crear" alineados a la derecha en la misma columna -->
+            <div class="crear" style="display: flex; flex-direction: column; align-items: center;">
+                <button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+                    <a href="{% url 'pasteleria:torta_create' %}" style="text-decoration: none; color: #ffb3d1;">🟠 Crear Torta</a>
+                </button>
+                <button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+                    <a href="{% url 'pasteleria:pedido_create' %}" style="text-decoration: none; color: #ffb3d1;">🟠 Crear Pedido</a>
+                </button>
+                <button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+                    <a href="{% url 'pasteleria:cliente_create' %}" style="text-decoration: none; color: #ffb3d1;">🟠 Crear Cliente</a>
+                </button>
+            </div>
         </div>
     </div>
 {% endblock main %}
