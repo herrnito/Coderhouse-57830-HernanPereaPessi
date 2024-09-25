@@ -1,4 +1,4 @@
-{% extends 'core/base.html' %}
+{% extends 'core/base.html' %} 
 
 {% block header %}
     Clientes
@@ -6,27 +6,39 @@
 
 {% block main %}
 
-<form action="{% url 'pasteleria:cliente_list' %}" method="get">
-    <input type="text" name="q" placeholder="Buscar...">
-    <button type="submit">Buscar</button>
+<form action="{% url 'pasteleria:cliente_list' %}" method="get" style="margin-bottom: 20px;">
+    <input type="text" name="q" placeholder="Buscar..." style="margin-right: 10px;">
+    <button type="submit" style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+        Buscar
+    </button>
 </form>
 
-<button>
-    <a href="{% url 'pasteleria:cliente_create' %}">Crear cliente</a>
+<button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+    <a href="{% url 'pasteleria:cliente_create' %}" style="text-decoration: none; color: #ffb3d1;">Crear cliente</a>
 </button>
-    <div>
+
+<div>
+    <ul>
         {% for cliente in clientes %}
             <li> Nombre: {{cliente.nombre}} 
-                <a href="{% url 'pasteleria:cliente_list_detail' cliente.id %}">Detalle</a>   
-                <a href="{% url 'pasteleria:cliente_update'  cliente.id %}"> Cambiar </a> 
-                <a href="{% url 'pasteleria:cliente_delete' cliente.id %}"> Eliminar</a>
+                <button style="margin: 5px; padding: 5px 10px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+                    <a href="{% url 'pasteleria:cliente_list_detail' cliente.id %}" style="text-decoration: none; color: #ffb3d1;">Detalle</a>
+                </button>   
+                <button style="margin: 5px; padding: 5px 10px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+                    <a href="{% url 'pasteleria:cliente_update'  cliente.id %}" style="text-decoration: none; color: #ffb3d1;"> Cambiar </a> 
+                </button>
+                <button style="margin: 5px; padding: 5px 10px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+                    <a href="{% url 'pasteleria:cliente_delete' cliente.id %}" style="text-decoration: none; color: #ffb3d1;"> Eliminar</a>
+                </button>
             </li>
-
-            {% empty %}
+        {% empty %}
             <p>No hay registros.</p>
-
         {% endfor %}
-    </div>   
-    <button><a href="{% url 'pasteleria:index' %}"> Volver </a></button>
+    </ul>
+</div>
+
+<button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+    <a href="{% url 'pasteleria:index' %}" style="text-decoration: none; color: #ffb3d1;"> Volver </a>
+</button>
 
 {% endblock main %}

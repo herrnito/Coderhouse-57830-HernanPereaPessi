@@ -1,19 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MG Pasteleria</title>
-    
-
+    <title>MG Pastelería</title>
+    <style>
+        body {
+            background-color: #1a1a1a; /* Gris oscuro casi negro */
+            color: #ffbbdd; /* Color rosa */
+            margin: 10%;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
 </head>
-<body style="margin: 10%">
+<body>
 
     <header>
-        <h1 style="text-align: center;">
+        <h1>
             {% block header %}
-            Bienvenido a MG Pasteleria.
+            Bienvenido a MG Pastelería.
             {% endblock header %}
         </h1>
     </header>

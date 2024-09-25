@@ -1,35 +1,41 @@
 {% load static %}
-   
-<div style="margin-bottom: 2%; display: flex; justify-content: center; gap: 1%; background-color: rgb(177, 130, 196);">
 
+<div style="margin-bottom: 2%; display: flex; justify-content: center; gap: 1%; background-color: rgb(176, 248, 93); padding: 10px;">
 
-    
-    <button><a href="{% url 'core:index' %}">🏠Home</a></button>
+    <button style="background-color: #2a2a2a; color: #e9b0cd; font-size: 18px; padding: 10px 20px; border: none; border-radius: 5px;">
+        <a href="{% url 'core:index' %}" style="color: #fafafa; text-decoration: none;">🏠Home</a>
+    </button>
+
     {% if user.is_authenticated %}
         
-    <button><a href="{% url 'pasteleria:index' %}">📜Pasteleria</a></button>
-    <button><a href="#">🟢{{ user.username }}</a></button>
+    <button style="background-color: #2a2a2a; color: #fcb4d8; font-size: 18px; padding: 10px 20px; border: none; border-radius: 5px;">
+        <a href="{% url 'pasteleria:index' %}" style="color: #ffffff; text-decoration: none;">📜Pastelería</a>
+    </button>
 
+    <button style="background-color: #2a2a2a; color: #f7a1cc; font-size: 18px; padding: 10px 20px; border: none; border-radius: 5px;">
+        <a href="#" style="color: #ffffff; text-decoration: none;">🟢{{ user.username }}</a>
+    </button>
 
-    <a href="{% url 'core:profile' %}">
-    <button> 👤{{ user.username }}</button></a>
+    <button style="background-color: #2a2a2a; color: #faa4cf; font-size: 18px; padding: 10px 20px; border: none; border-radius: 5px;">
+        <a href="{% url 'core:profile' %}" style="color: #ffffff; text-decoration: none;">👤{{ user.username }}</a>
+    </button>
 
     {% if user.vendedor.avatar %}
-        <img src="{{ user.vendedor.avatar.url }}" alt="avatar" style="height: 20px;">
-        {% else %}
-        <img src="{% static 'core/img/avatarrr.jpg' %}" alt="avatar" style="height: 20px;">
-        
+        <img src="{{ user.vendedor.avatar.url }}" alt="avatar" style="height: 30px; border-radius: 50%; margin-left: 10px;">
+    {% else %}
+        <img src="{% static 'core/img/avatarrr.jpg' %}" alt="avatar" style="height: 30px; border-radius: 50%; margin-left: 10px;">
     {% endif %}
 
-
-
-    <form action="{% url 'core:logout' %}" method="post">
+    <form action="{% url 'core:logout' %}" method="post" style="display: inline;">
         {% csrf_token %}
-        <button type="submit">🔻Logout</button>
+        <button type="submit" style="background-color: #2a2a2a; color: #ffffff; font-size: 18px; padding: 10px 20px; border: none; border-radius: 5px;">🔻Logout</button>
     </form>
-    
+
     {% else %}
-    <button><a href="{% url 'core:login' %}"> ☑️Login </a></button>
+    
+    <button style="background-color: #2a2a2a; color: #ffbfdf; font-size: 18px; padding: 10px 20px; border: none; border-radius: 5px;">
+        <a href="{% url 'core:login' %}" style="color: #ffffff; text-decoration: none;">☑️Login</a>
+    </button>
+
     {% endif %}
 </div>
-</navbar>

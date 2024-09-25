@@ -7,7 +7,9 @@
 
 {% block main %}
   <p>Ha cerrado sesion.</p>
-        <button type="submit"><a href="{% url 'core:index' %}"> Ok </a></button>
+  <button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+    <a href="{% url 'core:index' %}" style="text-decoration: none; color: #ffb3d1;"> Ok </a>
+</button>
     
 {% endblock main %}
 

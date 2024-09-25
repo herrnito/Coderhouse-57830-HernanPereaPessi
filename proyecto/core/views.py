@@ -11,7 +11,6 @@ from .forms import CustomUserCreateForm, UserProfileForm
 def index(request):
     return render(request, 'core/index.html')
 
-
 class Register(CreateView):
     form_class = CustomUserCreateForm
     template_name = "core/register.html"
@@ -25,3 +24,5 @@ class Profile(LoginRequiredMixin, UpdateView):
 
     def get_object(self):
         return self.request.user
+
+    

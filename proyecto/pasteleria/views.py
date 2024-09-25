@@ -21,19 +21,7 @@ def torta_list(request):
     return render(request, 'pasteleria/torta_list.html', contexto)
 
 
-# class TortaList(ListView):
-#     model = Torta
-#     queryset = Torta.objects.all()
-#     def get_queryset(self):
-#             queryset = super().get_queryset()
-#             q = self.request.GET.get('q')
-#             if q:
-#                 queryset = Torta.objects.filter(nombre__icontains=q)
-#             return queryset
        
-           
- 
-
 def cliente_list(request):
     query = request.GET.get("q")
     if query:
@@ -51,8 +39,6 @@ def pedido_list(request):
         pedidos = Pedido.objects.all()
     contexto = {'pedidos' : pedidos}
     return render(request, 'pasteleria/pedido_list.html', contexto)
-
-
 
 
 
@@ -93,8 +79,6 @@ def cliente_create(request):
 
 
 
-
-
 #****************** DETAIL
 
 def torta_list_detail(request, pk: int):
@@ -117,8 +101,6 @@ def torta_update(request, pk: int):
             form.save() 
             return redirect('pasteleria:torta_list')   
     return render(request, 'pasteleria/torta_form.html', {"form" : form})
-
-
 
 
 
@@ -146,7 +128,6 @@ def pedido_update(request, pk: int):
             form.save() 
             return redirect('pasteleria:pedido_list')   
     return render(request, 'pasteleria/pedido_form.html', {"form" : form})
-
 
 
 

@@ -9,7 +9,6 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path("", views.index, name="index"),
     path("torta/list", login_required(views.torta_list), name="torta_list"),
-    # path("torta/list", login_required(views.TortaList.as_view(), name="torta_list"),
     path("cliente/list", login_required(views.cliente_list), name="cliente_list"),
     path("pedido/list", login_required(views.pedido_list), name="pedido_list"),
     path("torta/create", login_required(views.torta_create), name="torta_create"),
@@ -23,4 +22,6 @@ urlpatterns = [
     path("torta/delete/<int:pk>", login_required(views.torta_delete), name="torta_delete"),
     path("cliente/delete/<int:pk>", login_required(views.cliente_delete), name="cliente_delete"),
     path("pedido/delete/<int:pk>", login_required(views.pedido_delete), name="pedido_delete"),
-]
+
+    
+]   

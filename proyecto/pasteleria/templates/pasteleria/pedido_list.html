@@ -5,24 +5,33 @@
 {% endblock header %}
 
 {% block main %}
-<form action="{% url 'pasteleria:pedido_list' %}" method="get">
-    <input type="text" name="q" placeholder="Buscar...">
-    <button type="submit">Buscar</button>
+<form action="{% url 'pasteleria:pedido_list' %}" method="get" style="margin-bottom: 20px;">
+    <input type="text" name="q" placeholder="Buscar..." style="margin-right: 10px;">
+    <button type="submit" style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+        Buscar
+    </button>
 </form>
-<button>
-    <a href="{% url 'pasteleria:pedido_create' %}">Crear pedido.</a>
+
+<button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+    <a href="{% url 'pasteleria:pedido_create' %}" style="text-decoration: none; color: #ffb3d1;">Crear pedido.</a>
 </button>
-    <div>
-        {% for pedido in pedidos %}
-            <p> {{ pedido.nombre }} {{ pedido.torta }} | 📋Cantidad: {{ pedido.cantidad }} | 📅Fecha: {{ pedido.fecha_pedido }} | ⌛Estado de pedido: {{ pedido.estado }}</p>
-            <a href="{% url 'pasteleria:pedido_update'  pedido.id %}"> Cambiar </a>
-            <a href="{% url 'pasteleria:pedido_delete' pedido.id %}"> Eliminar</a>
 
-            {% empty %}
-            <p>No hay registros.</p>
+<div>
+    {% for pedido in pedidos %}
+        <p> {{ pedido.nombre }} {{ pedido.torta }} | 📋Cantidad: {{ pedido.cantidad }} | 📅Fecha: {{ pedido.fecha_pedido }} | ⌛Estado de pedido: {{ pedido.estado }}</p>
+        <button style="margin: 5px; padding: 5px 10px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+            <a href="{% url 'pasteleria:pedido_update'  pedido.id %}" style="text-decoration: none; color: #ffb3d1;"> Cambiar </a>
+        </button>
+        <button style="margin: 5px; padding: 5px 10px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+            <a href="{% url 'pasteleria:pedido_delete' pedido.id %}" style="text-decoration: none; color: #ffb3d1;"> Eliminar </a>
+        </button>
+    {% empty %}
+        <p>No hay registros.</p>
+    {% endfor %}
+</div>
 
-        {% endfor %}
-    </div>
-    <button><a href="{% url 'pasteleria:index' %}"> Volver </a></button>
+<button style="margin: 10px; padding: 10px 20px; background-color: #292828; color: #ffb3d1; border: none; border-radius: 5px;">
+    <a href="{% url 'pasteleria:index' %}" style="text-decoration: none; color: #ffb3d1;"> Volver </a>
+</button>
 
 {% endblock main %}
