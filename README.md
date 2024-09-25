@@ -1,3 +1,6 @@
+Video muestra: https://drive.google.com/file/d/1EAWXW3aJoOfc1ZOc8Um76-eSM_HmVezS/view
+
+
 # Pastelería Web - Hernán Gastón Perea Pessi
 ## Comisión: #57830-python
 
@@ -14,7 +17,6 @@ Django: Framework de desarrollo web que sigue el patrón MVT (Model-View-Templat
 SQLite: Base de datos predeterminada para el almacenamiento de la información.
 
 ## Mejoras futuras
-
 - Configurar un panel de administración más completo y detallado.
 - Permitir que los usuarios realicen pagos a través de la plataforma.
 - Integrar notificaciones por correo electrónico para confirmar los pedidos realizados.
